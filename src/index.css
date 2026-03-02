@@ -1,24 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap');
-
-:root {
-  --cairo: #ff9800;
-  --cairo-light: #fff3e0;
-  --nile: #2196f3;
-  --nile-light: #e3f2fd;
-  --istanbul: #e91e63;
-  --istanbul-light: #fce4ec;
-  --bg: #f8f9fa;
-  --card-bg: #ffffff;
-  --text: #1a1a2e;
-  --text-secondary: #6b7280;
-  --border: #e5e7eb;
-  --shadow: 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.06);
-  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.06);
-  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.05);
-  --radius: 12px;
-  --radius-sm: 8px;
-  --radius-lg: 16px;
-}
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap');
 
 *, *::before, *::after {
   margin: 0;
@@ -31,13 +11,125 @@ html {
 }
 
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  background: var(--bg);
-  color: var(--text);
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: linear-gradient(165deg, #f8f5f0 0%, #efe9df 40%, #e8e0d4 100%);
+  color: #2a2520;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
 }
 
 #root {
   min-height: 100vh;
+}
+
+.section-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #c4b49a, transparent);
+  margin: 32px 0;
+}
+
+.card-option {
+  border: 2px solid transparent;
+  border-radius: 14px;
+  padding: 18px 20px;
+  cursor: pointer;
+  transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+}
+
+.card-option:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+}
+
+.card-option.selected {
+  border-color: #8b7355;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 8px 30px rgba(139, 115, 85, 0.15);
+}
+
+.card-option.selected::before {
+  content: '\2713';
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  width: 26px;
+  height: 26px;
+  background: #8b7355;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 600;
+}
+
+.perk-tag {
+  display: inline-block;
+  padding: 3px 10px;
+  background: rgba(139, 115, 85, 0.08);
+  border-radius: 20px;
+  font-size: 12px;
+  font-family: 'DM Sans', sans-serif;
+  color: #6b5d4a;
+  margin: 2px 3px 2px 0;
+  font-weight: 400;
+}
+
+.addon-toggle {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  border: 1.5px solid transparent;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.addon-toggle:hover {
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.addon-toggle.active {
+  border-color: #8b7355;
+  background: rgba(255, 255, 255, 0.85);
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 7px 0;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  color: #5a5048;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.summary-row:last-child {
+  border-bottom: none;
+}
+
+.summary-row.total {
+  font-weight: 600;
+  font-size: 14.5px;
+  color: #2a2520;
+  border-top: 2px solid #c4b49a;
+  border-bottom: none;
+  padding-top: 10px;
+  margin-top: 4px;
+}
+
+.info-card {
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 12px;
+  padding: 16px 18px;
+  border: 1px solid rgba(196, 180, 154, 0.25);
 }
